@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example- add rows to a table using JavaScript DOM</title>
+    <style>
+      
+    </style>
+        <script src="./employee.js" defer></script>
+
+  </head>
+  <body>
+    <button id="btn" onclick="addRow()">Add Row</button>
+    <br /><br />
+
+    <table id="myTable">
+      <tr>
+        <th>Designation</th>
+        <th>Employee Name</th>
+        <th>Employee ID</th>
+        <th>Prev Company</th>
+      </tr>
+
+      <tr>
+        <td><input type="text"  id="designation1" /></td>
+        <td><input type="text"  id="employeeName1" /></td>
+        <td><input type="text"  id="employeeId1" /></td>
+        <td><input type="text"  id="prevCompany1" /></td>
+      </tr>
+    </table>
+
+    <!-- SUBMIT -->
+    <button id="subButton btn" onclick="submit()">Submit</button>
+    <br /><br />
+
+    <p id="output">
+      <table id="displayTable"></table>
+    </p>
+
+ 
+  </body>
+
+  
+</html>
