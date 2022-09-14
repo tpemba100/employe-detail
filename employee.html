@@ -4,12 +4,21 @@
     <title>Example- add rows to a table using JavaScript DOM</title>
     <style>
       
+      body {
+        background-color: gray;
+        margin-top: 40px;
+      }
+
+      #displayTable td {
+        width: 70px;
+      }
+
     </style>
         <script src="./employee.js" defer></script>
 
   </head>
   <body>
-    <button id="btn" onclick="addRow()">Add Row</button>
+    <button id="btn addBtn" style = " display: flex; float: right; margin-right: 70px;" onclick="addRow()">Add Row</button>
     <br /><br />
 
     <table id="myTable">
@@ -33,7 +42,17 @@
     <br /><br />
 
     <p id="output">
-      <table id="displayTable"></table>
+      <table id="displayTable"
+              style = "width: 50%;
+
+                    margin: auto;
+
+                  background-color: blanchedalmond;
+              "
+        
+      >
+        
+      </table>
     </p>
 
  

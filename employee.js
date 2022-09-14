@@ -109,8 +109,8 @@ let submit = () => {
 
   // loop through each row of the table.
   for (row = 1; row < arrLength + 1; row++) {
-                                                    // loop through each cell in a row.
-                                                    // let element = myTab.rows.item(row).cells[c];
+                        // loop through each cell in a row.
+                         // let element = myTab.rows.item(row).cells[c];
     arrValues[row - 1] = {
       designation: document.getElementById(`designation${row}`).value,
       employeeName: document.getElementById(`employeeName${row}`).value,
@@ -161,7 +161,9 @@ function showData(x) {
   // let displayTable = document.createElement("TABLE");
 
 
+
   for (let i = 0; i < 4; i++) {
+    
     var row = dTable.insertRow(i);
 
     row.insertCell(0).innerHTML = arrValues[i].designation;
