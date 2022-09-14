@@ -30,9 +30,7 @@ function addRow() {
     } else if (c === 3) {
       ele.setAttribute("id", "prevCompany" + rowCount);
     }
-
-    // ele.setAttribute("id", c );
-
+    
     td.append(ele);
   }
 
@@ -48,8 +46,7 @@ function addRow() {
 
   td.append(rmv);
 
-  // choosing the last row and last cell
-  // choose the second last and delete the remove
+  //DELETING THE BUTTON AND ADDING TO NEW LAST ROW
   if (table.rows.length - 1 > 2) {
     let secondLastRow = table.rows[table.rows.length - 2];
 
@@ -57,12 +54,12 @@ function addRow() {
   }
 }
 
+
+// REMOVE THE ROW 
 function removeRow() {
-  let rowCount = table.rows.length - 1;
-
-  let thelastRow = table.rows[table.rows.length - 1];
-
   //get location of last row last cell
+  let rowCount = table.rows.length - 1;
+  let thelastRow = table.rows[table.rows.length - 1];
 
   let lastCell = thelastRow.cells[thelastRow.cells.length - 1]; //the delete last cell
   // console.log(lastCell)
@@ -75,7 +72,7 @@ function removeRow() {
     let td = document.createElement("td"); // table data
     td = secondLastRow.insertCell(4);
 
-    //create another button
+    //ADDING ANOTHER REMOVE BUTTON IN SECOND LAST ROW AFTER REMOVING THE LAST ROW
     let rmv = document.createElement("button");
     rmv.setAttribute("type", "submit");
     rmv.setAttribute("id", "remove");
@@ -84,7 +81,7 @@ function removeRow() {
     td.append(rmv);
   }
 
-                          //ANOTHER SOLUTION
+                          //ANOTHER POSSIBLE SOLUTION
                           // td.setAttribute("Padding", "0");
                           // secondLastCell = lastCell;
                           // td.append(secondLastCell);
@@ -93,13 +90,15 @@ function removeRow() {
 
   //remove
   console.log("REMOVE");
-
+  //DELETING THE LAST ROW
   document.getElementsByTagName("tr")[rowCount].remove();
 }
 
 // let thelastRow = table.rows[table.rows.length-1];
 //   let mainlastCell = thelastRow.cells[thelastRow.cells.length-1];
 
+
+// THE SUBMIT BUTTON
 let submit = () => {
 
   let myTab = document.getElementById("myTable");
@@ -125,13 +124,15 @@ let submit = () => {
   showData();
 
   //JSON
-  const data = arrValues();
-
-
-
+  
+  
+  
+  
+  
+  // DOESNT WORK YET
+  const data = arrValues;
   const url = `http://localhost:3000/employee`;
   const method = "POST";
-  
   fetch (url, {
       method,
       body: JSON.stringify(data),
@@ -139,19 +140,21 @@ let submit = () => {
           Accept: "application/json",
           "Content-Type":"application/json",
       },
+  }).then((res) => {
+    if (res.status === 201) {
+      alert("SAVED");
+    }
   });
 
-
-  
-  
-};
+ 
+}
 
 
 
 
 // PRINT DATA
 
-function showData(x) {
+function showData() {
   let dTable = document.getElementById("displayTable");
 
 
@@ -179,13 +182,6 @@ function showData(x) {
 
   //  document.getElementById('output').innerHTML = ;
 }
-
-
-
-
-
-
-// console.log(data)
 
 
 //      npx json-server --watch db.json
